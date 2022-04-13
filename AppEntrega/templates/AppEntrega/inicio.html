@@ -1,0 +1,44 @@
+{% extends "AppEntrega/padre.html"%}
+
+{%load static%}
+
+{%block contenidoQueCambia%}
+
+    <h1>Entrega Intermedia del Proyecto Final</h1>
+    <p> Entrega1 Sierra, Javier Marcelo M </p>
+    <br>
+    <br>
+
+
+    <h3>Podes buscar por numero de Telefono:</h3>
+
+    <form action="/AppEntrega/buscar/" method="GET">
+
+        <input type="number" name="telefono" id="nombre">
+
+        <input type="submit" value="Buscar">
+
+
+
+
+    </form>
+
+    
+
+    {% if telefono %}
+
+    <p>Cliente nro {{telefono}} </p>
+
+    <ul>
+	{% for cliente in cliente %}
+		<li> Nombre: {{cliente.nombre}} </li>
+		<li> Apellido: {{cliente.apellido}} </li>
+        <li> Dni: {{cliente.dni}} </li>
+        <li> Email: {{cliente.email}} </li>
+	{% endfor %}
+
+    </ul>
+
+    {%endif%}
+
+{%endblock%}
